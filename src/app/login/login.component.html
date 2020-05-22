@@ -1,0 +1,77 @@
+<div class="login-container px-4 py-5">
+    <h4>Todo Login</h4>
+
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+        <div class="form-group">
+            <label for="loginEmail">Email address</label>
+            <input type="email" class="form-control" id="loginEmail" name="email" formControlName="email">
+        </div>
+        <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" class="form-control" id="loginPassword" name="password" formControlName="password">
+        </div>
+        <small class="mb-4">Do you want to <strong data-toggle="modal" data-target="#exampleModal">Sign Up</strong> or <strong data-toggle="modal" data-target="#resetFormModal">Reset Password</strong></small>
+        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary btn-sm">Login</button>
+    </form>
+</div>
+
+  
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <form class="modal-content" [formGroup]="signUpForm" (ngSubmit)="signUpUser()">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Sign Up</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" formControlName="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" formControlName="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" formControlName="password">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-sm btn-success" [disabled]="!signUpForm.valid">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="resetFormModal" tabindex="-1" role="dialog" aria-labelledby="resetFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <form class="modal-content" [formGroup]="resetForm" (ngSubmit)="resetUser()">
+            <div class="modal-header">
+                <h4 class="modal-title" id="resetFormModalLabel">Reset Password</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="resetEmail">Email address</label>
+                    <input type="email" class="form-control" id="resetEmail" name="email" formControlName="email">
+                </div>
+                <div class="form-group">
+                    <label for="resetPassword">Password</label>
+                    <input type="password" class="form-control" id="resetPassword" name="password" formControlName="password">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-sm btn-success" [disabled]="!resetForm.valid">Update</button>
+            </div>
+        </form>
+    </div>
+</div>

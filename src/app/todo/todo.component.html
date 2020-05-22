@@ -1,0 +1,57 @@
+<div class="container pt-4">
+    <div class="d-flex justify-content-end">
+        <span class="cursor" (click)="logout()">
+            <svg class="bi bi-power text-danger" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 104.922.044l.5-.866a6 6 0 11-5.908-.053l.486.875z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z" clip-rule="evenodd"/>
+            </svg>
+        </span>
+    </div>
+</div>
+<div class="container">
+    <div class="todo-form my-5 p-5">
+        <form [formGroup]="newTodo" (ngSubmit)="createTodo()" class="container-fluid">
+            <div class="row">
+                <div class="col-md-5 form-group">
+                    <label for="name" class="col-sm-1-12 col-form-label">Title</label>
+                    <input type="text" class="form-control" name="name" id="name" formControlName="name" placeholder="">
+                </div>
+
+                <div class="col-md-5 form-group">
+                    <label for="description" class="col-sm-1-12 col-form-label">Description</label>
+                    <input type="text" class="form-control" name="description" id="description" formControlName="description" placeholder="">
+                </div>
+                
+                <div class="col-md-2 form-group">
+                    <label for="status" class="col-sm-1-12 col-form-label">Completed</label>
+                    <select class="form-control" name="status" id="status" formControlName="status">
+                        <option value="true" selected>True</option>
+                        <option value="false">False</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" [disabled]="!newTodo.valid">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="todo-form p-5">
+        <h3 class="mb-4">List of All Todo</h3>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of todos">
+                <div>
+                    <p class="mb-0"><strong>{{item.name}}</strong></p>
+                    <p class="mb-0">{{item.description}}</p>
+                </div>
+                <div>
+                    <span *ngIf="!item.status" class="badge badge-danger">False</span>
+                    <span *ngIf="item.status" class="badge badge-success">True</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+.login-container{
+    position: absolute;
+    max-width: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    border-radius: 2px;
+    background: #ffffff;
+    box-shadow:  5px 5px 10px #d9d9d9, 
+                 -5px -5px 10px #ffffff;
+
+
+    strong:hover{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
